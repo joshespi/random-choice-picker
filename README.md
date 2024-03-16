@@ -11,8 +11,27 @@ RandomChoicePicker is a simple Python application that allows you to add options
 You can install Python from the [official website](https://www.python.org/downloads/). Once Python is installed, you can install tkinter and PyInstaller using pip:
 
 ```bash
-pip install tkinter pyinstaller
+pip3 install tkinter pyinstaller
 ```
+
+## Installing tkinter through apt (Ubuntu/Debian)
+
+If you are using a Debian-based system like Ubuntu, you can install tkinter using the apt package manager. Here's how you can do it:
+
+1. Open the Terminal.
+2. Update your package list using apt:
+
+   ```bash
+   sudo apt update
+   ```
+
+3. Install tkinter:
+
+   ```
+   sudo apt install python3-tk
+   ```
+
+   Note: This will install tkinter for Python 3. If you want to install tkinter for Python 2, replace python3-tk with python-tk in the install command.
 
 ## Setting Up a Virtual Environment
 
@@ -65,7 +84,7 @@ This adds instructions for creating and activating a virtual environment on Mac/
 To build the executable, navigate to the directory containing the script in the terminal and run the following command:
 
 ```bash
-pyinstaller --onefile app.py
+pyinstaller --onefile choice-picker.py
 ```
 
 This will create an executable in the `dist` directory.
