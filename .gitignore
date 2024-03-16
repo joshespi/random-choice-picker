@@ -1,6 +1,5 @@
 /.venv
 /build
-/choice-picker.py
 /choice-picker.spec
 /dist
 /options.json
