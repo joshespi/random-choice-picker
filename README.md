@@ -11,29 +11,10 @@ RandomChoicePicker is a simple Python application that allows you to add options
 You can install Python from the [official website](https://www.python.org/downloads/). Once Python is installed, you can install tkinter and PyInstaller using pip:
 
 ```bash
-pip3 install tkinter pyinstaller
+pip install tk pyinstaller
 ```
 
-## Installing tkinter through apt (Ubuntu/Debian)
-
-If you are using a Debian-based system like Ubuntu, you can install tkinter using the apt package manager. Here's how you can do it:
-
-1. Open the Terminal.
-2. Update your package list using apt:
-
-   ```bash
-   sudo apt update
-   ```
-
-3. Install tkinter:
-
-   ```
-   sudo apt install python3-tk
-   ```
-
-   Note: This will install tkinter for Python 3. If you want to install tkinter for Python 2, replace python3-tk with python-tk in the install command.
-
-## Setting Up a Virtual Environment
+## Setting Up a Virtual Environment (Optional)
 
 Before installing the project dependencies, it's recommended to create a virtual environment. This keeps the dependencies required by different projects separate by creating isolated Python environments for them.
 
@@ -46,7 +27,7 @@ Here's how you can create a virtual environment:
 3. Run the following command to create a virtual environment:
 
    ```bash
-   python3 -m venv env
+   python -m venv env
    ```
 
 4. Activate the virtual environment:
@@ -74,7 +55,7 @@ Here's how you can create a virtual environment:
 After the virtual environment is activated, you can install the project dependencies with pip:
 
 ```bash
-pip install tkinter pyinstaller
+pip install tk pyinstaller
 ```
 
 This adds instructions for creating and activating a virtual environment on Mac/Linux and Windows. It also includes the command to install the project dependencies after the virtual environment is activated.
@@ -84,7 +65,7 @@ This adds instructions for creating and activating a virtual environment on Mac/
 To build the executable, navigate to the directory containing the script in the terminal and run the following command:
 
 ```bash
-pyinstaller --onefile choice-picker.py
+pyinstaller --onefile app.py
 ```
 
 This will create an executable in the `dist` directory.
