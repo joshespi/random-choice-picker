@@ -65,7 +65,7 @@ This adds instructions for creating and activating a virtual environment on Mac/
 To build the executable, navigate to the directory containing the script in the terminal and run the following command:
 
 ```bash
-pyinstaller --onefile app.py
+pyinstaller --onefile choice-picker.py
 ```
 
 This will create an executable in the `dist` directory.
