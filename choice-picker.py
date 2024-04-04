@@ -4,6 +4,7 @@ import tkinter.simpledialog
 import os
 import json
 import tkinter.messagebox
+from tkinter import simpledialog
 
 OPTIONS_FILE = 'options.json'
 
@@ -28,7 +29,7 @@ class RestaurantApp:
 
         # Set the window size
         window_width = 300
-        window_height = 300
+        window_height = 350
 
         # Get the screen size
         screen_width = self.root.winfo_screenwidth()
@@ -53,6 +54,9 @@ class RestaurantApp:
             self.root, text="Add Option", command=self.add_option)
         self.add_button.pack()
 
+        self.modify_button = tk.Button(self.root, text="Modify", command=self.modify_option)
+        self.modify_button.pack()
+
         self.pick_button = tk.Button(
             self.root, text="Pick Option", command=self.pick_option)
         self.pick_button.pack()
@@ -60,6 +64,7 @@ class RestaurantApp:
         self.remove_button = tk.Button(
             self.root, text="Remove Option", command=self.remove_option)
         self.remove_button.pack()
+        
 
         # Add options to option_listbox
         for option, weight in self.options:
@@ -113,7 +118,30 @@ class RestaurantApp:
 
     def run(self):
         self.root.mainloop()
+    
+    def modify_option(self):
+        # Get the index of the selected option
+        selected = self.option_listbox.curselection()
 
+        # If an option is selected
+        if selected:
+            # Open a dialog box to get the new option and weight
+            option = simpledialog.askstring("Modify Option", "Enter new option")
+            weight = simpledialog.askinteger("Modify Weight", "Enter new weight")
+
+            # Validate the input
+            if not option or not weight or weight < 1 or weight > 9:
+                tkinter.messagebox.showerror(
+                    "Invalid input", "Option must be a non-empty string and weight must be a single digit integer.")
+                return
+
+            # Update the option in the options list and in the listbox
+            self.options[selected[0]] = (option, weight)
+            self.option_listbox.delete(selected)
+            self.option_listbox.insert(selected, f"{option} (Weight: {weight})")
+
+            # Save the options to the file
+            self.save_options()
     def save_options(self):
         # Save options to file
         try:
