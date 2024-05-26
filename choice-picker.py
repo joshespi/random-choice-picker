@@ -107,13 +107,12 @@ class RestaurantApp:
 
     def pick_option(self):
         if self.options:
-            option = random.choices(
+            options = random.sample(
                 [option for option, weight in self.options],
-                weights=[weight for option, weight in self.options],
-                k=1
-            )[0]
+                min(3, len(self.options))
+            )
             tkinter.messagebox.showinfo(
-                "Result", f"You should go to: {option}")
+                "Result", f"Get Started With:\n\n{'\n'.join(options)}")
         self.save_options()
 
     def run(self):
